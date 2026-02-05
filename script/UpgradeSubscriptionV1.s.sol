@@ -15,18 +15,21 @@ import {DevOpsTools} from "lib/foundry-devops/src/DevOpsTools.sol";
  * @dev Deploys the SubscriptionV2 implementation and upgrades the proxy to use the new implementation.
  */
 contract UpgradeSubscriptionV1 is Script {
+    // UpgradeSubscriptionV1.s.sol
     function run() external returns (address) {
-        HelperConfig config = new HelperConfig();
-        (,, address ethUsdcPriceFeed) = config.activeNetworkConfig();
-
         address mostRecentDeployment = DevOpsTools.get_most_recent_deployment("ERC1967Proxy", block.chainid);
+        return upgrade(mostRecentDeployment);
+    }
 
-        vm.startBroadcast();
+    function upgrade(address proxyAddress) public returns (address) {
+        HelperConfig config = new HelperConfig();
+        (,, address ethUsdcPriceFeed, address deployer) = config.activeNetworkConfig();
+
+        vm.startBroadcast(deployer);
         SubscriptionV2 newImplementation = new SubscriptionV2();
-        SubscriptionV1 proxy = SubscriptionV1(mostRecentDeployment);
         bytes memory data = abi.encodeWithSelector(SubscriptionV2.initializeV2.selector, ethUsdcPriceFeed);
-        proxy.upgradeToAndCall(address(newImplementation), data);
+        SubscriptionV1(proxyAddress).upgradeToAndCall(address(newImplementation), data);
         vm.stopBroadcast();
-        return address(proxy);
+        return proxyAddress;
     }
 }

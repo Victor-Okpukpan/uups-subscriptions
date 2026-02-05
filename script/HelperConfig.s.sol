@@ -16,6 +16,7 @@ contract HelperConfig is Script {
         address usdc;
         address treasury;
         address ethUsdPriceFeed;
+        address deployer;
     }
 
     uint8 public constant DECIMALS = 8;
@@ -34,7 +35,8 @@ contract HelperConfig is Script {
         return NetworkConfig({
             usdc: 0x036CbD53842c5426634e7929541eC2318f3dCF7e,
             treasury: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8,
-            ethUsdPriceFeed: 0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1
+            ethUsdPriceFeed: 0x4aDC67696bA383F43DD60A9e78F2C97Fbbfc7cb1,
+            deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 //temporary
         });
     }
 
@@ -51,7 +53,8 @@ contract HelperConfig is Script {
         return NetworkConfig({
             usdc: address(mockUsdc),
             treasury: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8,
-            ethUsdPriceFeed: address(ethUsdMock)
+            ethUsdPriceFeed: address(ethUsdMock),
+            deployer: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
         });
     }
 }

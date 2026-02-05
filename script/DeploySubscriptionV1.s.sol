@@ -13,16 +13,15 @@ import {HelperConfig} from "./HelperConfig.s.sol";
  * @dev It initializes the proxy with the owner, USDC token address, and treasury address.
  */
 contract DeploySubscriptionV1 is Script {
-    function run() external returns (address) {
+    function run() external returns (address, HelperConfig) {
         HelperConfig config = new HelperConfig();
-
-        (address usdc, address treasury,) = config.activeNetworkConfig();
+        (address usdc, address treasury,, address deployer) = config.activeNetworkConfig();
 
         vm.startBroadcast();
         SubscriptionV1 implementation = new SubscriptionV1();
-        bytes memory data = abi.encodeWithSelector(SubscriptionV1.initialize.selector, msg.sender, usdc, treasury);
+        bytes memory data = abi.encodeWithSelector(SubscriptionV1.initialize.selector, deployer, usdc, treasury);
         ERC1967Proxy proxy = new ERC1967Proxy(address(implementation), data);
         vm.stopBroadcast();
-        return address(proxy);
+        return (address(proxy), config);
     }
 }

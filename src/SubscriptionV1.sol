@@ -33,7 +33,7 @@ contract SubscriptionV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     /// @notice The address of the treasury where subscription payments are sent.
     address public s_treasury;
     /// @notice The ID for the next plan to be created.
-    uint256 public s_nextPlanId = 1;
+    uint256 public s_nextPlanId;
     /// @notice The address of the USDC token used for payments.
     address public s_usdc;
     /// @notice The billing period for subscriptions, set to 30 days.
@@ -91,6 +91,7 @@ contract SubscriptionV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
 
         s_usdc = _usdc;
         s_treasury = _treasury;
+        s_nextPlanId = 1;
     }
 
     /// @notice Creates a new subscription plan.
@@ -102,7 +103,7 @@ contract SubscriptionV1 is Initializable, UUPSUpgradeable, OwnableUpgradeable {
             revert Subscription__CannotBeZero();
         }
         id = s_nextPlanId;
-        s_plans[id] = Plan({pricePerPeriod: _pricePerPeriod, active: false});
+        s_plans[id] = Plan({pricePerPeriod: _pricePerPeriod, active: true});
         s_nextPlanId++;
         emit NewPlanCreated(id);
     }
