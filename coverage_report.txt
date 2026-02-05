@@ -1,0 +1,111 @@
+forge coverage > coverage_report.txtCompiling 61 files with Solc 0.8.30
+Solc 0.8.30 finished in 3.78s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to view
+   --> test/SubscriptionV1Test.t.sol:306:5:
+    |
+306 |     function test_GetSubscriptionForNonSubscriber() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+   --> test/SubscriptionV1Test.t.sol:313:5:
+    |
+313 |     function test_IsPaymentDueReturnsFalseForNonSubscriber() public {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to view
+  --> test/SubscriptionV2Test.t.sol:42:5:
+   |
+42 |     function test_initializeV2SetsPriceFeed() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Analysing contracts...
+Running tests...
+
+Ran 3 tests for test/HelperConfigTest.t.sol:HelperConfigTest
+[PASS] test_AnvilConfigIsSingleton() (gas: 2964071)
+[PASS] test_GetBaseSepoliaConfig() (gas: 1827752)
+[PASS] test_GetOrCreateAnvilConfig() (gas: 2960721)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 3.41ms (3.82ms CPU time)
+
+Ran 3 tests for test/DeploySubscriptionV1Test.t.sol:DeploySubscriptionV1Test
+[PASS] test_ImplementationCannotBeInitializedDirectly() (gas: 13039)
+[PASS] test_NextPlanIdIsOne() (gas: 12791)
+[PASS] test_ProxyIsInitializedWithCorrectConfig() (gas: 26972)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.70ms (1.94ms CPU time)
+
+Ran 2 tests for test/UpgradeSubscriptionTest.t.sol:UpgradeSubscriptionTest
+[PASS] test_StatePreservationAfterUpgrade() (gas: 5754213)
+[PASS] test_UpgradeViaScriptWorks() (gas: 5697082)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.70ms (4.28ms CPU time)
+
+Ran 12 tests for test/SubscriptionV2Test.t.sol:SubscriptionV2Test
+[PASS] test_CancelSubscriptionResetsEthFlag() (gas: 211886)
+[PASS] test_RenewSubscriptionWithEthRevertsForNonEthSubscriber() (gas: 243771)
+[PASS] test_RenewSubscriptionWithEthWorks() (gas: 280179)
+[PASS] test_RevertIfAlreadySubscribed() (gas: 244852)
+[PASS] test_RevertIfEthPriceIsNegative() (gas: 107547)
+[PASS] test_RevertIfNotSubscribedToAnyPlan() (gas: 26288)
+[PASS] test_RevertIfNotYetExpired() (gas: 244379)
+[PASS] test_RevertIfPriceIsStale() (gas: 106436)
+[PASS] test_SubscribeWithEthRevertsForInsufficientEth() (gas: 103153)
+[PASS] test_SubscribeWithEthRevertsForNonExistentPlan() (gas: 26720)
+[PASS] test_SubscribeWithEthWorks() (gas: 264309)
+[PASS] test_initializeV2SetsPriceFeed() (gas: 15254)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 17.31ms (16.38ms CPU time)
+
+Ran 31 tests for test/SubscriptionV1Test.t.sol:SubscriptionV1Test
+[PASS] test_CancelSubscriptionWorks() (gas: 169927)
+[PASS] test_GetPlanWorks() (gas: 73475)
+[PASS] test_GetSubscriptionForNonSubscriber() (gas: 21209)
+[PASS] test_GetSubscriptionWorks() (gas: 214550)
+[PASS] test_IsPaymentDueReturnsFalseForActiveSubscription() (gas: 213454)
+[PASS] test_IsPaymentDueReturnsFalseForNonSubscriber() (gas: 15716)
+[PASS] test_IsPaymentDueReturnsTrueWhenExpired() (gas: 214747)
+[PASS] test_RenewSubscriptionWorks() (gas: 224898)
+[PASS] test_RevertWhenAlreadySubscribed() (gas: 213458)
+[PASS] test_RevertWhenCancelWithoutSubscription() (gas: 18732)
+[PASS] test_RevertWhenGetNonExistentPlan() (gas: 20808)
+[PASS] test_RevertWhenRenewBeforeExpiration() (gas: 212740)
+[PASS] test_RevertWhenRenewWithoutSubscription() (gas: 18688)
+[PASS] test_RevertWhenSetPlanStatusIsSame() (gas: 73190)
+[PASS] test_RevertWhenSetPlanStatusIsSetToInvalidId() (gas: 72935)
+[PASS] test_RevertWhenSetPlanStatusIsSetToZero() (gas: 72910)
+[PASS] test_RevertWhenSetTreasuryIsZeroAddress() (gas: 19258)
+[PASS] test_RevertWhenSubscribeToInactivePlan() (gas: 60184)
+[PASS] test_RevertWhenSubscribeToNonExistentPlan() (gas: 19119)
+[PASS] test_RevertWhencreatePlansPriceIsZero() (gas: 20406)
+[PASS] test_SetPlanStatusWorks() (gas: 59915)
+[PASS] test_SubscribeWorks() (gas: 214573)
+[PASS] test_UpgradeFailsWhenCalledByNonOwner() (gas: 2707636)
+[PASS] test_UpgradeToSubscriptionV2() (gas: 2745156)
+[PASS] test_createPlan() (gas: 74443)
+[PASS] test_onlyOwnerCanCreatePlan() (gas: 20496)
+[PASS] test_onlyOwnerCanSetPlanStatus() (gas: 76007)
+[PASS] test_onlyOwnerCanSetTreasury() (gas: 19269)
+[PASS] test_setTreasuryWorks() (gas: 27234)
+[PASS] test_subscriptionHasBeenDeployedAndInitialized() (gas: 24529)
+[PASS] test_valuesHaveBeenInitializedProperly() (gas: 26950)
+Suite result: ok. 31 passed; 0 failed; 0 skipped; finished in 17.59ms (35.84ms CPU time)
+
+Ran 5 test suites in 26.32ms (52.70ms CPU time): 51 tests passed, 0 failed, 0 skipped (51 total tests)
+
+╭------------------------------------+------------------+------------------+-----------------+-----------------╮
+| File                               | % Lines          | % Statements     | % Branches      | % Funcs         |
++==============================================================================================================+
+| script/DeploySubscriptionV1.s.sol  | 100.00% (9/9)    | 100.00% (13/13)  | 100.00% (0/0)   | 100.00% (1/1)   |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| script/HelperConfig.s.sol          | 100.00% (14/14)  | 100.00% (13/13)  | 100.00% (3/3)   | 100.00% (3/3)   |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| script/UpgradeSubscriptionV1.s.sol | 75.00% (9/12)    | 75.00% (12/16)   | 100.00% (0/0)   | 50.00% (1/2)    |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| src/SubscriptionV1.sol             | 100.00% (67/67)  | 100.00% (66/66)  | 100.00% (11/11) | 100.00% (12/12) |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| src/SubscriptionV2.sol             | 93.62% (44/47)   | 92.73% (51/55)   | 69.23% (9/13)   | 100.00% (6/6)   |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| test/mocks/MockUSDC.sol            | 0.00% (0/4)      | 0.00% (0/2)      | 100.00% (0/0)   | 0.00% (0/2)     |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| test/mocks/MockV3Aggregator.sol    | 100.00% (9/9)    | 100.00% (6/6)    | 100.00% (0/0)   | 100.00% (3/3)   |
+|------------------------------------+------------------+------------------+-----------------+-----------------|
+| Total                              | 93.83% (152/162) | 94.15% (161/171) | 85.19% (23/27)  | 89.66% (26/29)  |
+╰------------------------------------+------------------+------------------+-----------------+-----------------╯
