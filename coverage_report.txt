@@ -1,5 +1,5 @@
-forge coverage > coverage_report.txtCompiling 61 files with Solc 0.8.30
-Solc 0.8.30 finished in 3.78s
+Compiling 61 files with Solc 0.8.30
+Solc 0.8.30 finished in 2.17s
 Compiler run successful with warnings:
 Warning (2018): Function state mutability can be restricted to view
    --> test/SubscriptionV1Test.t.sol:306:5:
@@ -26,18 +26,18 @@ Ran 3 tests for test/HelperConfigTest.t.sol:HelperConfigTest
 [PASS] test_AnvilConfigIsSingleton() (gas: 2964071)
 [PASS] test_GetBaseSepoliaConfig() (gas: 1827752)
 [PASS] test_GetOrCreateAnvilConfig() (gas: 2960721)
-Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 3.41ms (3.82ms CPU time)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 981.84µs (1.17ms CPU time)
 
 Ran 3 tests for test/DeploySubscriptionV1Test.t.sol:DeploySubscriptionV1Test
 [PASS] test_ImplementationCannotBeInitializedDirectly() (gas: 13039)
 [PASS] test_NextPlanIdIsOne() (gas: 12791)
 [PASS] test_ProxyIsInitializedWithCorrectConfig() (gas: 26972)
-Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.70ms (1.94ms CPU time)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.68ms (486.61µs CPU time)
 
 Ran 2 tests for test/UpgradeSubscriptionTest.t.sol:UpgradeSubscriptionTest
 [PASS] test_StatePreservationAfterUpgrade() (gas: 5754213)
 [PASS] test_UpgradeViaScriptWorks() (gas: 5697082)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.70ms (4.28ms CPU time)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.53ms (1.03ms CPU time)
 
 Ran 12 tests for test/SubscriptionV2Test.t.sol:SubscriptionV2Test
 [PASS] test_CancelSubscriptionResetsEthFlag() (gas: 211886)
@@ -52,7 +52,7 @@ Ran 12 tests for test/SubscriptionV2Test.t.sol:SubscriptionV2Test
 [PASS] test_SubscribeWithEthRevertsForNonExistentPlan() (gas: 26720)
 [PASS] test_SubscribeWithEthWorks() (gas: 264309)
 [PASS] test_initializeV2SetsPriceFeed() (gas: 15254)
-Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 17.31ms (16.38ms CPU time)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 6.50ms (4.66ms CPU time)
 
 Ran 31 tests for test/SubscriptionV1Test.t.sol:SubscriptionV1Test
 [PASS] test_CancelSubscriptionWorks() (gas: 169927)
@@ -86,9 +86,9 @@ Ran 31 tests for test/SubscriptionV1Test.t.sol:SubscriptionV1Test
 [PASS] test_setTreasuryWorks() (gas: 27234)
 [PASS] test_subscriptionHasBeenDeployedAndInitialized() (gas: 24529)
 [PASS] test_valuesHaveBeenInitializedProperly() (gas: 26950)
-Suite result: ok. 31 passed; 0 failed; 0 skipped; finished in 17.59ms (35.84ms CPU time)
+Suite result: ok. 31 passed; 0 failed; 0 skipped; finished in 6.58ms (10.31ms CPU time)
 
-Ran 5 test suites in 26.32ms (52.70ms CPU time): 51 tests passed, 0 failed, 0 skipped (51 total tests)
+Ran 5 test suites in 8.77ms (18.27ms CPU time): 51 tests passed, 0 failed, 0 skipped (51 total tests)
 
 ╭------------------------------------+------------------+------------------+-----------------+-----------------╮
 | File                               | % Lines          | % Statements     | % Branches      | % Funcs         |
@@ -103,9 +103,5 @@ Ran 5 test suites in 26.32ms (52.70ms CPU time): 51 tests passed, 0 failed, 0 sk
 |------------------------------------+------------------+------------------+-----------------+-----------------|
 | src/SubscriptionV2.sol             | 93.62% (44/47)   | 92.73% (51/55)   | 69.23% (9/13)   | 100.00% (6/6)   |
 |------------------------------------+------------------+------------------+-----------------+-----------------|
-| test/mocks/MockUSDC.sol            | 0.00% (0/4)      | 0.00% (0/2)      | 100.00% (0/0)   | 0.00% (0/2)     |
-|------------------------------------+------------------+------------------+-----------------+-----------------|
-| test/mocks/MockV3Aggregator.sol    | 100.00% (9/9)    | 100.00% (6/6)    | 100.00% (0/0)   | 100.00% (3/3)   |
-|------------------------------------+------------------+------------------+-----------------+-----------------|
-| Total                              | 93.83% (152/162) | 94.15% (161/171) | 85.19% (23/27)  | 89.66% (26/29)  |
+| Total                              | 95.97% (143/149) | 95.09% (155/163) | 85.19% (23/27)  | 95.83% (23/24)  |
 ╰------------------------------------+------------------+------------------+-----------------+-----------------╯
